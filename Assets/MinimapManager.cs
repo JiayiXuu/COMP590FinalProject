@@ -49,7 +49,7 @@ public class MinimapManager : MonoBehaviour
                     if (this.transform.position.y - crystal.transform.position.y < -0.2 ){
                         icon.Find("up").gameObject.SetActive(true);
                         icon.Find("down").gameObject.SetActive(false);
-                    } else if (this.transform.position.y - icon.position.y > 0.2){
+                    } else if (this.transform.position.y - crystal.transform.position.y > 0.2){
                         icon.Find("up").gameObject.SetActive(false);
                         icon.Find("down").gameObject.SetActive(true);
                     } else {

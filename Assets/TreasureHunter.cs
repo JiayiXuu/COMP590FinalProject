@@ -1,26 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor; //<---------------------THIS MIGHT BREAK WHEN BUILDING :) BECAUSE THE EDITOR IS NOT AVALIABLE WHEN BUILDING :) FIND ANOTHER WAY MUH MAN
+using UnityEditor;
+using TMPro;
 
 public class TreasureHunter : MonoBehaviour
 {
-    //  public TextMesh updateText;
-    // public TextMesh itemNumerText; 
-    // public TextMesh scoreText; 
+    public GameObject  progress;
+    public GameObject  score; 
+    public GameObject  youwin; 
+    public GameObject  time; 
+
+    private float timeElapsed;
+
+    private TextMeshProUGUI pText;
+    private TextMeshProUGUI sText;
+    private TextMeshProUGUI wText;
+    private TextMeshProUGUI tText;
     private int numItems = 0; 
 
-    private int score = 0; 
+    public GameObject treasure;
+    private int totalScore = 0; 
 
    
     void Start()
     {
+        numItems = 0;
+        treasure.SetActive(false);
+
+        pText = progress.GetComponent<TextMeshProUGUI>();
+        sText = score.GetComponent<TextMeshProUGUI>();
+        wText = youwin.GetComponent<TextMeshProUGUI>();
+        tText = time.GetComponent<TextMeshProUGUI>();
+
+        youwin.SetActive(false);
+        time.SetActive(false);
+        pText.text = "Find the five treasures indicated on the map!";
+        sText.text = "Your score: " + totalScore;
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {   
-
+        if (numItems >=5){
+            treasure.SetActive(true);
+            pText.text = "The hidden treasure has appeared! Find it to win the game!";
+        }
 
 
     }
@@ -33,11 +58,18 @@ public class TreasureHunter : MonoBehaviour
             
 
                 numItems ++; 
+                totalScore += 15;
+                sText.text = "Your score: " + totalScore;
 
-                // itemNumerText.text = "Items Collected: " + numItems;
-                // score = score + other.GetComponent<Collectible>().pointVal; 
-                // scoreText.text = "Score: " + score; 
+                if (other.name == "treasure"){
+                    timeElapsed = Time.time;
+                    youwin.SetActive(true);
+                    tText.text = "Total time: " + timeElapsed;
+                    time.SetActive(false);
+                }
                 Destroy(other.GetComponent<Collider>().gameObject);
+
+    
 
         }
            

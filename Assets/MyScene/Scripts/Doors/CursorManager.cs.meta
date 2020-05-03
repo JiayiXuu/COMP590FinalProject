@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 5f9b02a61a568cd4b96a969155888dc0
-timeCreated: 1521117181
-licenseType: Store
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - defaultCursor: {fileID: 21300000, guid: b72cb7c0ea8ff2342815a919446abc5e, type: 3}
+  - lockedCursor: {fileID: 21300000, guid: 68c4a3ea36b031c48abb86817c0b1011, type: 3}
+  - doorCursor: {fileID: 21300000, guid: 76226f4e5146f4b46995ec05a856f59c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
