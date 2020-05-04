@@ -10,7 +10,7 @@ namespace Sun_Temple{
 		private bool isLocked;
 
 		void Start(){
-			isLocked = true;
+			isLocked = false;
 		}
 
 

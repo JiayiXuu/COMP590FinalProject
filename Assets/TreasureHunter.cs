@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 using TMPro;
 
 public class TreasureHunter : MonoBehaviour
@@ -10,6 +11,9 @@ public class TreasureHunter : MonoBehaviour
     public GameObject  score; 
     public GameObject  youwin; 
     public GameObject  time; 
+    
+    public GameObject opening;
+    public Button yourButton;
 
     private float timeElapsed;
 
@@ -19,12 +23,23 @@ public class TreasureHunter : MonoBehaviour
     private TextMeshProUGUI tText;
     private int numItems = 0; 
 
+  
+
     public GameObject treasure;
     private int totalScore = 0; 
 
    
     void Start()
     {
+
+        youwin.SetActive(false);
+        time.SetActive(false);
+        progress.SetActive(false);
+        score.SetActive(false);
+        opening.SetActive(true);
+
+		yourButton.onClick.AddListener(TaskOnClick);
+
         numItems = 0;
         treasure.SetActive(false);
 
@@ -33,10 +48,6 @@ public class TreasureHunter : MonoBehaviour
         wText = youwin.GetComponent<TextMeshProUGUI>();
         tText = time.GetComponent<TextMeshProUGUI>();
 
-        youwin.SetActive(false);
-        time.SetActive(false);
-        pText.text = "Find the five treasures indicated on the map!";
-        sText.text = "Your score: " + totalScore;
     }
 
     // Update is called once per frame
@@ -74,6 +85,16 @@ public class TreasureHunter : MonoBehaviour
         }
            
     }
+
+    void TaskOnClick(){
+		opening.SetActive(false);
+        progress.SetActive(true);
+        score.SetActive(true);
+        pText.text = "Find the five treasures indicated on the map!";
+        sText.text = "Your score: " + totalScore;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+	}
 
 
 
