@@ -7,11 +7,11 @@ using TMPro;
 
 public class TreasureHunterWithUI : MonoBehaviour
 {
-    public GameObject  progress;
-    public GameObject  score; 
-    public GameObject  youwin; 
-    public GameObject  time; 
-    
+    public GameObject progress;
+    public GameObject score;
+    public GameObject youwin;
+    public GameObject time;
+
     //public GameObject opening;
     //public Button yourButton;
 
@@ -21,14 +21,14 @@ public class TreasureHunterWithUI : MonoBehaviour
     private TextMeshProUGUI sText;
     private TextMeshProUGUI wText;
     private TextMeshProUGUI tText;
-    private int numItems = 0; 
+    private int numItems = 0;
 
-  
+
 
     public GameObject treasure;
-    private int totalScore = 0; 
+    private int totalScore = 0;
 
-   
+
     void Start()
     {
 
@@ -56,8 +56,9 @@ public class TreasureHunterWithUI : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        if (numItems >=5){
+    {
+        if (numItems >= 5)
+        {
             treasure.SetActive(true);
             pText.text = "The hidden treasure has appeared! Find it to win the game!";
         }
@@ -68,15 +69,19 @@ public class TreasureHunterWithUI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.tag);
-        if(other.CompareTag("Collectible")){
-                
-            
+        if (other.CompareTag("Collectible"))
+        {
+            if (other.GetComponent<Collectible>().available)
+            {
 
-                numItems ++; 
+
+
+                numItems++;
                 totalScore += 15;
                 sText.text = "Your score: " + totalScore;
 
-                if (other.name == "treasure"){
+                if (other.name == "treasure")
+                {
                     time.SetActive(true);
                     timeElapsed = Time.time;
                     youwin.SetActive(true);
@@ -84,11 +89,12 @@ public class TreasureHunterWithUI : MonoBehaviour
 
                 }
                 Destroy(other.GetComponent<Collider>().gameObject);
+            }
 
-    
+
 
         }
-           
+
     }
 
 
