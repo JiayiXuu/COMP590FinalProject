@@ -17,7 +17,7 @@ public class ThreeDMinimap : MonoBehaviour
     public float up = 2f;
     void Start()
     {
-        for (int i = 0; i < Collectibles.Length; i++)
+        for (int i = 0; i < Collectibles.Length-1; i++)
         {
             Collectible c = Collectibles[i];
             GameObject g = c.gameObject;
@@ -32,7 +32,7 @@ public class ThreeDMinimap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < Collectibles.Length; i++)
+        for (int i = 0; i < Collectibles.Length-1; i++)
         {
             Collectible c = Collectibles[i];
             if (c != null)
