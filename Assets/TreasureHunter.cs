@@ -8,18 +8,18 @@ public class TreasureHunter : MonoBehaviour
     //  public TextMesh updateText;
     // public TextMesh itemNumerText; 
     // public TextMesh scoreText; 
-    private int numItems = 0; 
+    private int numItems = 0;
 
-    private int score = 0; 
+    private int score = 0;
 
-   
+
     void Start()
     {
     }
 
     // Update is called once per frame
     void LateUpdate()
-    {   
+    {
 
 
 
@@ -28,19 +28,22 @@ public class TreasureHunter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.tag);
-        if(other.CompareTag("Collectible")){
-                
-            
+        if (other.CompareTag("Collectible"))
+        {
+            if (other.GetComponent<Collectible>().available)
+            {
 
-                numItems ++; 
+
+
+                numItems++;
 
                 // itemNumerText.text = "Items Collected: " + numItems;
                 // score = score + other.GetComponent<Collectible>().pointVal; 
                 // scoreText.text = "Score: " + score; 
                 Destroy(other.GetComponent<Collider>().gameObject);
-
+            }
         }
-           
+
     }
 
 

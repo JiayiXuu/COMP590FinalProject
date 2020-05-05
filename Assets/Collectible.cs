@@ -5,6 +5,7 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int pointVal; 
+    public int pointVal;
+    public bool available = true;
 
 }
