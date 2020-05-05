@@ -73,10 +73,11 @@ public class TreasureHunter : MonoBehaviour
                 sText.text = "Your score: " + totalScore;
 
                 if (other.name == "treasure"){
+                    time.SetActive(true);
                     timeElapsed = Time.time;
                     youwin.SetActive(true);
-                    tText.text = "Total time: " + timeElapsed;
-                    time.SetActive(false);
+                    tText.text = "Total time: " + timeElapsed + "s";
+
                 }
                 Destroy(other.GetComponent<Collider>().gameObject);
 
