@@ -107,6 +107,7 @@
      <Compile Include="Assets\MyScene\Scripts\FPSController\CursorLock.cs" />
      <Compile Include="Assets\MyScene\Scripts\MoveToLayer.cs" />
      <Compile Include="Assets\MyScene\Scripts\WindSwaySimple.cs" />
+     <Compile Include="Assets\RotationScript.cs" />
      <Compile Include="Assets\ThreeDMinimap.cs" />
      <Compile Include="Assets\TreasureHunter.cs" />
      <Compile Include="Assets\TreasureHunterWithUI.cs" />
